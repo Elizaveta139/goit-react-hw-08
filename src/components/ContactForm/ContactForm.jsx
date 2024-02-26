@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/operations';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
@@ -11,14 +11,14 @@ import { IoIosContact, IoIosCall, IoMdPersonAdd } from 'react-icons/io';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
-  phone: Yup.string()
+  number: Yup.string()
     .matches(/^[0-9]+$/, 'Must be only digits')
     .min(6, 'Must be at least 6 digits')
     // .typeError('It doesn`t look like a phone number')
     .required('This field is requried'),
 });
 
-const initialValues = { id: '', name: '', phone: '' };
+const initialValues = { id: '', name: '', number: '' };
 
 export default function ContactForm() {
   const nameFieldId = useId();
@@ -27,10 +27,10 @@ export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  function handleSubmit({ name, phone }, actions) {
+  function handleSubmit({ name, number }, actions) {
     const newContact = {
       name,
-      phone,
+      number,
     };
 
     if (contacts.find(contact => contact.name === newContact.name)) {
@@ -38,7 +38,7 @@ export default function ContactForm() {
       return toast.error(`${newContact.name} is already in contacts`);
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     toast.success(`Contact ${name} successfully added`);
     actions.resetForm();
   }
@@ -71,8 +71,8 @@ export default function ContactForm() {
             <IoIosCall size="24" />
             Number
           </label>
-          <Field className={css.field} type="tel" name="phone" id={numberFieldId} />
-          <ErrorMessage className={css.error} name="phone" component="span" />
+          <Field className={css.field} type="tel" name="number" id={numberFieldId} />
+          <ErrorMessage className={css.error} name="number" component="span" />
         </div>
 
         <button className={css.btn} type="submit">

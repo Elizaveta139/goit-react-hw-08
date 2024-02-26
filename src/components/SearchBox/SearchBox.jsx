@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 // import Fuse from 'fuse.js';
-import { selectFilter } from '../../redux/selectors';
-import { changeFilter } from '../../redux/filtersSlice';
+import { selectFilter } from '../../redux/contacts/selectors';
+import { changeFilter } from '../../redux/contacts/filtersSlice';
 // import { selectVisibleContacts } from '../../redux/selectors';
 
 import css from './SearchBox.module.css';

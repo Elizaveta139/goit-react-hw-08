@@ -4,7 +4,7 @@ import { IoIosContact, IoIosCall, IoIosTrash } from 'react-icons/io';
 import toast from 'react-hot-toast';
 import css from './Contact.module.css';
 
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/contacts/operations';
 import DeleteContactModal from '../DeleteContactModal/DeleteContactModal';
 
 export default function Contact({ id, name, number }) {
