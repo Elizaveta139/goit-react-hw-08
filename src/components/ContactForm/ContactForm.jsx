@@ -6,6 +6,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 import css from './ContactForm.module.css';
 import { IoIosContact, IoIosCall, IoMdPersonAdd } from 'react-icons/io';
 
@@ -57,6 +60,19 @@ export default function ContactForm() {
       validationSchema={validationSchema}
     >
       <Form className={css.form}>
+        {/* <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '100%' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <TextField id="outlined-basic" label="Name" variant="outlined" color="warning" />
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <TextField id="filled-basic" label="Number" variant="filled" /> */}
         <div className={css.div}>
           <label htmlFor={nameFieldId} className={css.label}>
             <IoIosContact size="24" />
@@ -65,6 +81,7 @@ export default function ContactForm() {
           <Field className={css.field} type="text" name="name" id={nameFieldId} />
           <ErrorMessage className={css.error} name="name" component="span" />
         </div>
+        {/* </Box> */}
 
         <div className={css.div}>
           <label htmlFor={numberFieldId} className={css.label}>

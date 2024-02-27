@@ -12,14 +12,14 @@ import Layout from '../Layout/Layout';
 import NotFound from '../../pages/NotFound';
 // import ContactList from '../ContactList/ContactList';
 // import SearchBox from '../SearchBox/SearchBox';
-// import Loader from '../Loader/Loader';
+import Loader from '../Loader/Loader';
 // import SectionContactForm from '../SectionContactForm/SectionContactForm';
 // import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const HomePage = lazy(() => import('../../pages/HomePage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
-const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
+const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ export default function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -1,11 +1,36 @@
-/* .link {
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px;
-    font-weight: 700;
-    color: #2a363b;
-  }
-  
-  .link.active {
-    color: #e84a5f;
-  } */
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 25px;
+  font-weight: 700;
+  color: #2a363b;
+  position: relative;
+}
+
+.link.active {
+  color: #e84a5f;
+}
+
+.link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #e84a5f;
+}
+
+.link.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #e84a5f;
+}
