@@ -9,7 +9,11 @@ import css from './RegisterForm.module.css';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
-  email: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
+  email: Yup.string()
+    .email()
+    .min(3, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('This field is requried'),
   password: Yup.string()
     .min(7, 'Min of 7 characters')
     .max(50, 'Too Long!')

@@ -8,7 +8,11 @@ import { IoIosCall, IoMdPersonAdd } from 'react-icons/io';
 import css from './LoginForm.module.css';
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
+  email: Yup.string()
+    .email()
+    .min(3, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('This field is requried'),
   password: Yup.string()
     .min(3, 'Too Short!')
     .max(50, 'Too Long!')

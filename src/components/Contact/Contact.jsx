@@ -1,18 +1,21 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { IoIosContact, IoIosCall, IoIosTrash } from 'react-icons/io';
+import { FaEdit } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import css from './Contact.module.css';
 
 import { deleteContact } from '../../redux/contacts/operations';
 import DeleteContactModal from '../DeleteContactModal/DeleteContactModal';
+import EditContactModal from '../EditContactModal/EditContactModal';
 
 export default function Contact({ id, name, number }) {
   const dispatch = useDispatch();
   const [selectedContactId, setSelectedContactId] = useState(null);
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const handleDelete = () => dispatch(deleteContact(id));
-
+  //видалення
   const handleDeleteContact = contactId => {
     setSelectedContactId(contactId);
   };
@@ -27,6 +30,16 @@ export default function Contact({ id, name, number }) {
     setSelectedContactId(null);
   };
 
+  //редагування
+  const handleEdit = contact => {
+    setSelectedContact(contact);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={css.wrap}>
       <div className={css.infoContacts}>
@@ -39,17 +52,24 @@ export default function Contact({ id, name, number }) {
           {number}
         </p>
       </div>
-
       <button type="button" className={css.btn} onClick={() => handleDeleteContact(id)}>
-        Delete
         <IoIosTrash className={css.icon} size="24" />
       </button>
-
+      <button type="button" className={css.btn} onClick={() => handleEdit({ id, name, number })}>
+        <FaEdit className={css.icon} size="22" />
+      </button>
       <DeleteContactModal
         isOpen={!!selectedContactId}
         onCancel={handleCancelDelete}
         onConfirm={handleConfirmDelete}
       />
+      {selectedContact && (
+        <EditContactModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          contact={selectedContact}
+        />
+      )}
     </div>
   );
 }
