@@ -52,17 +52,15 @@ export default function Contact({ id, name, number }) {
           {number}
         </p>
       </div>
-      <button type="button" className={css.btn} onClick={() => handleDeleteContact(id)}>
-        <IoIosTrash className={css.icon} size="24" />
-      </button>
-      <button type="button" className={css.btn} onClick={() => handleEdit({ id, name, number })}>
-        <FaEdit className={css.icon} size="22" />
-      </button>
-      <DeleteContactModal
-        isOpen={!!selectedContactId}
-        onCancel={handleCancelDelete}
-        onConfirm={handleConfirmDelete}
-      />
+      <div className={css.btnWrap}>
+        <button type="button" className={css.btn} onClick={() => handleEdit({ id, name, number })}>
+          <FaEdit className={css.icon} size="22" />
+        </button>
+        <button type="button" className={css.btn} onClick={() => handleDeleteContact(id)}>
+          <IoIosTrash className={css.icon} size="25" />
+        </button>
+      </div>
+
       {selectedContact && (
         <EditContactModal
           isOpen={isModalOpen}
@@ -70,6 +68,12 @@ export default function Contact({ id, name, number }) {
           contact={selectedContact}
         />
       )}
+
+      <DeleteContactModal
+        isOpen={!!selectedContactId}
+        onCancel={handleCancelDelete}
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 }

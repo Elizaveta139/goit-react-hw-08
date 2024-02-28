@@ -4,7 +4,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import SectionContactForm from '../../components/SectionContactForm/SectionContactForm';
-import ContactForm from '../../components/ContactForm/ContactForm';
+// import ContactForm from '../../components/ContactForm/ContactForm';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { fetchContacts } from '../../redux/contacts/operations';
@@ -25,7 +25,7 @@ export default function ContactsPage() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Your contacts</title>
+          <title>PhoneBook</title>
         </Helmet>
         <SectionContactForm />
 
@@ -33,6 +33,7 @@ export default function ContactsPage() {
           <SearchBox />
           {isLoading && <Loader />}
           {error && <ErrorMessage />}
+
           <ContactList />
         </div>
       </HelmetProvider>

@@ -51,9 +51,21 @@ export default function EditContactModal({ isOpen, onClose, contact }) {
       className={css.wrapModal}
     >
       <div>
-        <h2>Edit Contact</h2>
-        <input type="text" name="name" value={name} onChange={handleChangeName} />
-        <input type="text" name="number" value={number} onChange={handleChangeNumber} />
+        <h2 className={css.titleModal}>Edit Contact</h2>
+        <input
+          className={css.input}
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChangeName}
+        />
+        <input
+          className={css.input}
+          type="text"
+          name="number"
+          value={number}
+          onChange={handleChangeNumber}
+        />
         <button className={css.btnModal} onClick={handleEdit}>
           Save Changes
         </button>

@@ -9,15 +9,19 @@ export default function ContactList() {
 
   return (
     <div className={css.wrap}>
-      <ul className={css.list}>
-        {contacts.map(({ id, name, number }) => {
-          return (
-            <li key={id} className={css.item}>
-              <Contact name={name} number={number} id={id} />
-            </li>
-          );
-        })}
-      </ul>
+      {contacts.length === 0 ? (
+        <p className={css.textNoContacts}>You don`t have any contacts yet</p>
+      ) : (
+        <ul className={css.list}>
+          {contacts.map(({ id, name, number }) => {
+            return (
+              <li key={id} className={css.item}>
+                <Contact name={name} number={number} id={id} />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

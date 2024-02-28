@@ -1,79 +1,84 @@
-import { useId } from 'react';
-import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import toast from 'react-hot-toast';
-import { register } from '../../redux/auth/operations';
-import { IoIosContact, IoIosCall, IoMdPersonAdd } from 'react-icons/io';
-import css from './RegisterForm.module.css';
+// import { useId } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import * as Yup from 'yup';
+// import toast from 'react-hot-toast';
+// import { registerUser } from '../../redux/auth/operations';
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
-  email: Yup.string()
-    .email()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('This field is requried'),
-  password: Yup.string()
-    .min(7, 'Min of 7 characters')
-    .max(50, 'Too Long!')
-    .required('This field is requried'),
-});
+// import { IoIosContact } from 'react-icons/io';
+// import { MdEmail } from 'react-icons/md';
+// import { RiLockPasswordFill } from 'react-icons/ri';
 
-const initialValues = { id: '', name: '', email: '', password: '' };
+// import css from './RegisterForm.module.css';
+// import SignUp from '../SignUp/SignUp';
 
-export default function RegisterForm() {
-  const nameFieldId = useId();
-  const emailFieldId = useId();
-  const passwordFieldId = useId();
+// const validationSchema = Yup.object().shape({
+//   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
+//   email: Yup.string()
+//     .email()
+//     .min(3, 'Too Short!')
+//     .max(50, 'Too Long!')
+//     .required('This field is requried'),
+//   password: Yup.string()
+//     .min(7, 'Min of 7 characters')
+//     .max(50, 'Too Long!')
+//     .required('This field is requried'),
+// });
 
-  const dispatch = useDispatch();
+// const initialValues = { id: '', name: '', email: '', password: '' };
 
-  function handleSubmit({ name, email, password }, actions) {
-    dispatch(register({ name, email, password }));
-    toast.success(`${name}, you are successfully registered`);
-    actions.resetForm();
-  }
+// export default function RegisterForm() {
+//   // const nameFieldId = useId();
+//   // const emailFieldId = useId();
+//   // const passwordFieldId = useId();
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form className={css.form}>
-        <div className={css.div}>
-          <label htmlFor={nameFieldId} className={css.label}>
-            <IoIosContact size="24" />
-            Name
-          </label>
-          <Field className={css.field} type="text" name="name" id={nameFieldId} />
-          <ErrorMessage className={css.error} name="name" component="span" />
-        </div>
+//   const dispatch = useDispatch();
 
-        <div className={css.div}>
-          <label htmlFor={emailFieldId} className={css.label}>
-            <IoIosCall size="24" />
-            Email
-          </label>
-          <Field className={css.field} type="email" name="email" id={emailFieldId} />
-          <ErrorMessage className={css.error} name="email" component="span" />
-        </div>
+//   function handleSubmit({ name, email, password }, actions) {
+//     dispatch(registerUser({ name, email, password }));
+//     toast.success(`${name}, you are successfully registered`);
+//     actions.resetForm();
+//   }
 
-        <div className={css.div}>
-          <label htmlFor={passwordFieldId} className={css.label}>
-            <IoIosCall size="24" />
-            Password
-          </label>
-          <Field className={css.field} type="password" name="password" id={passwordFieldId} />
-          <ErrorMessage className={css.error} name="password" component="span" />
-        </div>
+//   return (
+//     <Formik
+//       initialValues={initialValues}
+//       onSubmit={handleSubmit}
+//       validationSchema={validationSchema}
+//     >
+//       <SignUp />
+//       {/* <Form className={css.form}> */}
+//       {/* <div className={css.div}>
+//           <label htmlFor={nameFieldId} className={css.label}>
+//             <IoIosContact size="24" />
+//             Name
+//           </label>
+//           <Field className={css.field} type="text" name="name" id={nameFieldId} />
+//           <ErrorMessage className={css.error} name="name" component="span" />
+//         </div>
 
-        <button className={css.btn} type="submit">
-          <IoMdPersonAdd className={css.svg} />
-          Register
-        </button>
-      </Form>
-    </Formik>
-  );
-}
+//         <div className={css.div}>
+//           <label htmlFor={emailFieldId} className={css.label}>
+//             <MdEmail size="24" />
+//             Email
+//           </label>
+//           <Field className={css.field} type="email" name="email" id={emailFieldId} />
+//           <ErrorMessage className={css.error} name="email" component="span" />
+//         </div>
+
+//         <div className={css.div}>
+//           <label htmlFor={passwordFieldId} className={css.label}>
+//             <RiLockPasswordFill size="24" />
+//             Password
+//           </label>
+//           <Field className={css.field} type="password" name="password" id={passwordFieldId} />
+//           <ErrorMessage className={css.error} name="password" component="span" />
+//         </div>
+
+//         <button className={css.btn} type="submit">
+//           Sign up
+//         </button> */}
+//       {/* </Form> */}
+//     </Formik>
+//   );
+// }
