@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.link:not(:last-child) {
+  margin-right: 45px;
+}
+
 .link.active {
   color: #c9b5a9;
 }
