@@ -11,12 +11,11 @@
 .div {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  margin-bottom: 25px;
+  gap: 15px;
 }
 
 .titleModal {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .input {

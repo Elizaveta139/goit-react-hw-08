@@ -67,14 +67,14 @@ export default function RegisterForm() {
               </Typography>
 
               <div className={css.div}>
-                <Field className={css.field} type="text" name="name" label="Name" as={TextField} />
+                <Field className={css.field} type="name" name="name" label="Name" as={TextField} />
                 <ErrorMessage className={css.error} name="name" component="span" />
               </div>
 
               <div className={css.div}>
                 <Field
                   className={css.field}
-                  type="text"
+                  type="email"
                   name="email"
                   label="Email"
                   as={TextField}

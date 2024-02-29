@@ -59,20 +59,6 @@ export default function EditContactModal({ isOpen, onClose, contact }) {
               onChange={handleChangeNumber}
             />
           </div>
-          {/* <input
-          className={css.input}
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChangeName}
-        /> */}
-          {/* <input
-          className={css.input}
-          type="text"
-          name="number"
-          value={number}
-          onChange={handleChangeNumber}
-        /> */}
           <button className={css.btnModal} onClick={handleEdit}>
             Save Changes
           </button>

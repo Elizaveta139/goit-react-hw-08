@@ -11,8 +11,8 @@ export default function ContactList() {
 
   return (
     <div className={css.wrap}>
-      {contacts.length === 0 && filter === '' ? (
-        <p className={css.textNoContacts}>You don`t have any contacts yet</p>
+      {contacts.length === 0 && filter.query === '' ? (
+        <p className={css.textNoContacts}>You don`t have any contacts yet...</p>
       ) : (
         <ul className={css.list}>
           {contacts.map(({ id, name, number }) => {
@@ -24,7 +24,8 @@ export default function ContactList() {
           })}
         </ul>
       )}
-      {contacts.length === 0 && filter !== '' && (
+
+      {contacts.length === 0 && filter.query !== '' && (
         <p className={css.textNoContacts}>Nothing was found for your request...</p>
       )}
     </div>
