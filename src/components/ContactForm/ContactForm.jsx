@@ -1,24 +1,28 @@
 import { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/contacts/selectors';
-import { addContact } from '../../redux/contacts/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { IoPersonAddSharp } from 'react-icons/io5';
 
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/operations';
+import { defaultTheme } from '../defaultSettings';
 
 import css from './ContactForm.module.css';
-import { IoIosContact, IoIosCall, IoMdPersonAdd } from 'react-icons/io';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
+  name: Yup.string().required('This field is requried').min(3, 'Too Short!').max(50, 'Too Long!'),
   number: Yup.string()
+    .required('This field is requried')
     .matches(/^[0-9]+$/, 'Must be only digits')
-    .min(6, 'Must be at least 6 digits')
-    // .typeError('It doesn`t look like a phone number')
-    .required('This field is requried'),
+    .min(6, 'Must be at least 6 digits'),
+  // .typeError('It doesn`t look like a phone number')
 });
 
 const initialValues = { id: '', name: '', number: '' };
@@ -30,7 +34,7 @@ export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  function handleSubmit({ name, number }, actions) {
+  function onSubmit({ name, number }, actions) {
     const newContact = {
       name,
       number,
@@ -46,57 +50,55 @@ export default function ContactForm() {
     actions.resetForm();
   }
 
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   dispatch(addContact(event.target.elements.text.value));
-  //   form.reset();
-  // };
-
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form className={css.form}>
-        {/* <Box
-          component="form"
-          sx={{
-            '& > :not(style)': { m: 1, width: '100%' },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div>
-            <TextField id="outlined-basic" label="Name" variant="outlined" color="warning" />
+    <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+      <ThemeProvider theme={defaultTheme}>
+        <Form className={css.form}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main', margin: '0 auto' }}>
+            <IoPersonAddSharp />
+          </Avatar>
+          <Typography component="h1" variant="h5" sx={{ margin: '0 auto' }}>
+            Adding a Contact
+          </Typography>
+
+          <div className={css.div}>
+            <Field
+              className={css.field}
+              type="text"
+              name="name"
+              label="Name"
+              id={nameFieldId}
+              as={TextField}
+            />
             <ErrorMessage className={css.error} name="name" component="span" />
           </div>
-          <TextField id="filled-basic" label="Number" variant="filled" /> */}
-        <div className={css.div}>
-          <label htmlFor={nameFieldId} className={css.label}>
-            <IoIosContact size="24" />
-            Name
-          </label>
-          <Field className={css.field} type="text" name="name" id={nameFieldId} />
-          <ErrorMessage className={css.error} name="name" component="span" />
-        </div>
-        {/* </Box> */}
 
-        <div className={css.div}>
-          <label htmlFor={numberFieldId} className={css.label}>
-            <IoIosCall size="24" />
-            Number
-          </label>
-          <Field className={css.field} type="tel" name="number" id={numberFieldId} />
-          <ErrorMessage className={css.error} name="number" component="span" />
-        </div>
+          <div className={css.div}>
+            <Field
+              className={css.field}
+              type="tel"
+              name="number"
+              label="Number"
+              id={numberFieldId}
+              as={TextField}
+            />
+            <ErrorMessage className={css.error} name="number" component="span" />
+          </div>
 
-        <button className={css.btn} type="submit">
-          <IoMdPersonAdd className={css.svg} />
-          Add contact
-        </button>
-      </Form>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 2, mb: 2, height: 50, fontSize: 20, boxShadow: 0 }}
+          >
+            Sign Up
+          </Button>
+
+          {/* <button className={css.btn} type="submit">
+            Add contact
+          </button> */}
+        </Form>
+      </ThemeProvider>
     </Formik>
   );
 }

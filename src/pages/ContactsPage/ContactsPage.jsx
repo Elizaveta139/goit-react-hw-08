@@ -31,10 +31,9 @@ export default function ContactsPage() {
 
         <div className={css.wrapContacts}>
           <SearchBox />
+          <ContactList />
           {isLoading && <Loader />}
           {error && <ErrorMessage />}
-
-          <ContactList />
         </div>
       </HelmetProvider>
     </>

@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-// import RegisterForm from '../components/RegisterForm/RegisterForm';
-import SignUp from '../components/SignUp/SignUp';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
+// import SignUp from '../components/SignUp/SignUp';
 
 export default function RegisterPage() {
   return (
@@ -9,8 +9,8 @@ export default function RegisterPage() {
         <Helmet>
           <title>Registration</title>
         </Helmet>
-        <SignUp />
-        {/* <RegisterForm /> */}
+        {/* <SignUp /> */}
+        <RegisterForm />
       </HelmetProvider>
     </div>
   );

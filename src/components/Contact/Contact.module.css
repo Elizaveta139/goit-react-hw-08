@@ -4,24 +4,25 @@
   padding: 25px;
   /* border: 1px solid #000; */
   border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: rgb(255, 255, 255, 0.6); */
-  /* background-color: #d3bdb0; */
   background-color: #e5e4e4bf;
+
+  /* background-color: #d3bdb0; */
+  /* background-color: #e5e4e4bf; */
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .wrap:hover {
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transform: scale(1.01);
   /* background-color: rgb(255, 255, 255, 0.4); */
-  background-color: #d3bdb0;
+  background-color: #fff;
 }
 
 .infoContacts {
@@ -34,7 +35,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-size: 18px;
 }
 
 .text:last-child {
@@ -44,13 +45,13 @@
 .btnWrap {
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
+  gap: 10px;
 }
 
 .btn {
   /* width: 100px; */
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   cursor: pointer;
   font-weight: bold;
 
@@ -61,20 +62,19 @@
 
   /* background: rgba(0, 0, 0, 0.3); */
   border: none;
-  border-radius: 50%;
+  border-radius: 3px;
   /* border-radius: 5px; */
 
   /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
   /* background-color: #ffffff; */
-  background-color: transparent;
-  color: #000000;
+  background-color: #d3bdb0;
+  color: #fff;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover {
-  background-color: rgba(229, 228, 228, 0.6);
-  border-radius: 50%;
+  background-color: #000;
   /* color: #fff; */
 }

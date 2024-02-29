@@ -1,15 +1,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 
   width: 450px;
-  height: 400px;
+  height: 450px;
   padding: 20px;
   /* margin: 0 auto; */
 
   border-radius: 5px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: rgb(255, 255, 255);
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -20,17 +20,7 @@
 
 .field {
   width: 100%;
-  height: 50px;
-  font-size: 18px;
-  margin: 0 auto;
-  padding: 15px;
-  background-color: #e5e4e4bf;
-  border: 1px solid #bababa;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.field:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  font-size: 20px;
 }
 
 .label {
@@ -53,10 +43,8 @@
 
   color: #fff;
   border: none;
-  /* border: 1px solid #000; */
   border-radius: 5px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-  /* background: rgba(0, 0, 0, 0.3); */
   background-color: #d3bdb0;
 
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -65,22 +53,16 @@
 
 .btn:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  /* background-color: rgb(189, 189, 189); */
   background-color: rgb(14, 13, 13);
 }
 
 .error {
-  /* width: 400px;
-  height: 25px;
-  border-radius: 5px; */
-  /* background-color: rgb(255, 245, 245); */
   display: block;
   color: #8e0303;
 }
 
 .div {
-  height: 100px;
-  /* margin-bottom: 15px; */
+  height: 80px;
   font-weight: bold;
   color: #000000;
 }

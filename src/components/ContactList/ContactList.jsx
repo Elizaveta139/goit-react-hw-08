@@ -1,15 +1,17 @@
 import { useSelector } from 'react-redux';
 import { selectVisibleContacts } from '../../redux/contacts/selectors';
+import { selectFilter } from '../../redux/contacts/selectors';
 import Contact from '../Contact/Contact';
 
 import css from './ContactList.module.css';
 
 export default function ContactList() {
   const contacts = useSelector(selectVisibleContacts);
+  const filter = useSelector(selectFilter);
 
   return (
     <div className={css.wrap}>
-      {contacts.length === 0 ? (
+      {contacts.length === 0 && filter === '' ? (
         <p className={css.textNoContacts}>You don`t have any contacts yet</p>
       ) : (
         <ul className={css.list}>
@@ -21,6 +23,9 @@ export default function ContactList() {
             );
           })}
         </ul>
+      )}
+      {contacts.length === 0 && filter !== '' && (
+        <p className={css.textNoContacts}>Nothing was found for your request...</p>
       )}
     </div>
   );
