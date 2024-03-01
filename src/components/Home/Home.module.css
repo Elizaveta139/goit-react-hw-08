@@ -15,7 +15,7 @@
 
 .imgBackground {
   position: absolute;
-  top: 36%;
+  top: 40%;
   left: 15%;
 
   border-radius: 50%;
@@ -33,4 +33,8 @@
 .img {
   object-fit: cover;
   border-radius: 50%;
+}
+
+.img:hover {
+  transform: scale(1.01);
 }
