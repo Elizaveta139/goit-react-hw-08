@@ -8,7 +8,7 @@ export default function AuthNav() {
   };
 
   return (
-    <div>
+    <div className={css.wrap}>
       <NavLink className={buildLinkClass} to="/register">
         Register
       </NavLink>

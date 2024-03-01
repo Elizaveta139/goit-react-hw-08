@@ -10,11 +10,18 @@ export default function Navigation() {
     return clsx(css.link, isActive && css.active);
   };
 
+  const buildNavClass = ({ isActive }) => {
+    return clsx(css.logo, isActive && css.active);
+  };
+
   return (
     <nav>
-      <NavLink className={buildLinkClass} to="/">
-        Home
+      <NavLink className={buildNavClass} to="/">
+        <strong> PHONE BOOK</strong>
       </NavLink>
+      {/* <NavLink className={buildLinkClass} to="/">
+        Home
+      </NavLink> */}
       {isLoggedIn && (
         <NavLink className={buildLinkClass} to="/contacts">
           Contacts

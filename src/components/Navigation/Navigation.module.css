@@ -1,9 +1,19 @@
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  padding: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+  position: relative;
+}
+
 .link {
   display: inline-block;
   text-decoration: none;
   padding: 25px;
   font-weight: 800;
-  color: #2a363b;
+  color: #000000;
   position: relative;
 }
 
@@ -11,7 +21,11 @@
   color: #c9b5a9;
 }
 
-.link.active::after {
+.logo.active {
+  color: #c9b5a9;
+}
+
+/* .link.active::after {
   content: '';
   position: absolute;
   left: 0;
@@ -21,4 +35,4 @@
   height: 4px;
   border-radius: 2px;
   background-color: #b19889;
-}
+} */

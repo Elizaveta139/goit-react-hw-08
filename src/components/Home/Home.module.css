@@ -1,0 +1,36 @@
+.title {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.wrap {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 70px;
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.imgBackground {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.wrapText {
+}
+
+.text {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 50%;
+}

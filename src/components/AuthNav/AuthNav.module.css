@@ -1,11 +1,33 @@
 .link {
-  display: inline-block;
+  /* display: inline-block;
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
-  color: #2a363b;
+  color: #000000;
   cursor: pointer;
-  position: relative;
+  position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
+  background-color: #d3bdb0;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wrap {
+  display: flex;
 }
 
 .link:not(:last-child) {
@@ -13,10 +35,11 @@
 }
 
 .link.active {
-  color: #c9b5a9;
+  /* color: #c9b5a9; */
+  background-color: rgb(14, 13, 13);
 }
 
-.link.active::after {
+/* .link.active::after {
   content: '';
   position: absolute;
   left: 0;
@@ -26,4 +49,4 @@
   height: 4px;
   border-radius: 2px;
   background-color: #b19889;
-}
+} */
