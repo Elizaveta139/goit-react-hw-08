@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={css.wrap}>
       <div className={css.wrapText}>
-        <h1 className={css.title}>Phone Book</h1>
+        {/* <h1 className={css.title}>Phone Book</h1> */}
         <img
           className={css.imgBackground}
           src={imgBeigeBackground}
