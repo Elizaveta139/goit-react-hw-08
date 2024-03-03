@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
@@ -14,9 +14,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import toast from 'react-hot-toast';
 import validator from 'validator';
 
-import { registerUser } from '../../redux/auth/operations';
+import { register } from '../../redux/auth/operations';
 import { defaultTheme } from '../defaultSettings';
 import css from './RegisterForm.module.css';
+import { useAuth } from '../../hooks/useAuth';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
@@ -36,8 +37,9 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
 
   function handleSubmit({ name, email, password }, actions) {
-    dispatch(registerUser({ name, email, password }));
-    toast.success(`${name}, you are successfully registered`);
+    dispatch(register({ name, email, password }));
+
+    // toast.success(`${name}, you are successfully registered`);
     actions.resetForm();
   }
 

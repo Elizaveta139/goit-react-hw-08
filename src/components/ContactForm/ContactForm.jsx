@@ -22,7 +22,6 @@ const validationSchema = Yup.object().shape({
     .required('This field is requried')
     .matches(/^[0-9]+$/, 'Must be only digits')
     .min(6, 'Must be at least 6 digits'),
-  // .typeError('It doesn`t look like a phone number')
 });
 
 const initialValues = { id: '', name: '', number: '' };

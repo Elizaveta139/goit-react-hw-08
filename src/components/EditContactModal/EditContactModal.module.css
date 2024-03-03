@@ -50,3 +50,14 @@
   background-color: rgb(14, 13, 13);
   color: #ffffff;
 }
+
+.error {
+  display: block;
+  color: #8e0303;
+}
+
+.divInput {
+  height: 80px;
+  font-weight: bold;
+  color: #000000;
+}

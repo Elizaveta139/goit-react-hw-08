@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
@@ -13,13 +14,15 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const registerUser = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
+export const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
   try {
     const res = await axios.post('/users/signup', credentials);
+    console.log(res.data);
     // After successful registration, add the token to the HTTP header
     setAuthHeader(res.data.token);
     return res.data;
   } catch (error) {
+    toast.error('Such a user is already registered');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -31,6 +34,7 @@ export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI
     setAuthHeader(res.data.token);
     return res.data;
   } catch (error) {
+    toast.error('You entered an incorrect login or password');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
