@@ -32,16 +32,15 @@ const validationSchema = Yup.object().shape({
 const initialValues = { id: '', email: '', password: '' };
 
 export default function LoginForm() {
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
   function handleSubmit({ email, password }, actions) {
     dispatch(logIn({ email, password }));
-    toast.success('You have successfully logged into your account!');
-    actions.resetForm();
+
+    // toast.success('You have successfully logged into your account!');
+    // actions.resetForm();
   }
 
-  // toast.error('No such account exists!');
   return (
     <Formik
       initialValues={initialValues}

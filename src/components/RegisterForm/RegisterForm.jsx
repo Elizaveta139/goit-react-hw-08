@@ -17,7 +17,6 @@ import validator from 'validator';
 import { register } from '../../redux/auth/operations';
 import { defaultTheme } from '../defaultSettings';
 import css from './RegisterForm.module.css';
-import { useAuth } from '../../hooks/useAuth';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('This field is requried'),
@@ -40,7 +39,7 @@ export default function RegisterForm() {
     dispatch(register({ name, email, password }));
 
     // toast.success(`${name}, you are successfully registered`);
-    actions.resetForm();
+    // actions.resetForm();
   }
 
   return (
